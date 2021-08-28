@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const API_URL = 'https://jsonplaceholder.typicode.com';
+const API_URL = 'http://localhost:8000/api/v1/auth';
 
 const servicesAuth = {
     login: (infoUsuario) => {
-        return axios.post(`${API_URL}/posts`, { ...infoUsuario })
+        return axios.post(`${API_URL}/login`, { ...infoUsuario })
     },
     register: (usuario) => {
         // const config = {

@@ -11,7 +11,7 @@ const LoginScreen = () => {
 
     const history = useHistory();
 
-    const [formValues, handleInputChange] = useForm({ email: '', password: '' });
+    const [formValues, handleInputChange] = useForm({ email: 'joelpahe18@gmail.com', password: 'password' });
     
     const { email, password } = formValues
 
@@ -23,11 +23,12 @@ const LoginScreen = () => {
             
             // localStorage.setItem("token", access_token)
             // localStorage.setItem("token_type", token_type)
-            { data: { id } }) => {
+            { data: { access_token } }) => {
 
-            localStorage.setItem("token", id)
-
-            history.push('../../')
+            localStorage.setItem("token", access_token)
+            console.log(access_token);
+            // history.push('../../')DirectoryListScreen
+            history.push('/DirectoryListScreen')
         }, ({ response: { status, statusText } }) => {
             if (status === 400) {
                 console.log("Error");

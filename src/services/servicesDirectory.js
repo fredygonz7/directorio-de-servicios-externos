@@ -13,7 +13,7 @@ const servicesDirectory = {
 }
 
 const fetchAllResources = async () => {
-    const res = await jsonplaceholderApi.get('/posts')
+    const res = await jsonplaceholderApi.get('/directorioServicio')
         // .then(({ data, status, statusText }) => {
 
         //     console.log(data);
@@ -23,8 +23,8 @@ const fetchAllResources = async () => {
         //         return ({ status, statusText });
         //     }
         // });
-    // console.log(res);
-    return ( res.data )
+    // console.log(res.data);
+    return ( res.data.data )
 }
 
 export { servicesDirectory, fetchAllResources };

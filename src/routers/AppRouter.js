@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import { DirectoryListScreen } from '../components/directory/DirectoryListScreen';
 import DirectoryScreen from '../components/directory/DirectoryScreen';
+import { LoginScreen } from '../components/auth/LoginScreen';
+
 import AuthRouter from './AuthRouter';
 
 const AppRouter = () => {
@@ -9,7 +11,17 @@ const AppRouter = () => {
         <Router>
             <div>
                 <Switch>
-                    <Route exact path="/" component={DirectoryListScreen}>
+                <Route
+                        exact
+                        path="/"
+                        component={LoginScreen}>
+                        {/* {DirectoryScreen} */}
+                    </Route>
+
+                    <Route
+                        exact
+                        path="/DirectoryListScreen"
+                        component={DirectoryListScreen}>
                         {/* {DirectoryScreen} */}
                     </Route>
 
