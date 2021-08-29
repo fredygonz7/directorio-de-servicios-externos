@@ -1,10 +1,28 @@
 // import { useState } from "react";
 import { Loading } from "../../components/Loading";
 import { useDirectories } from "../../hooks/useDirectories";
+import { fetchDeleteDirectory } from "../../services/servicesDirectory";
 
 export const DirectoryListScreen = () => {
     const { isLoading, directories } = useDirectories();
     console.log(directories);
+
+    const eliminar = ( id )  =>{
+        
+        console.log(id)
+        return;
+
+
+        fetchDeleteDirectory( id).then( data => {
+
+
+
+        }, error => {
+
+
+
+        });
+    }
 
     return (
         <div className="container">
@@ -29,7 +47,7 @@ export const DirectoryListScreen = () => {
                                 <td>{NombreServicio}</td>
                                 <td>{PaginaWeb}</td>
                                 <td>{CorreoElectronico}</td>
-                                <td><button type="submit" className="btn btn-primary">Eliminar</button></td>
+                                <td><button type="submit" onClick={eliminar(id) } className="btn btn-primary">Eliminar</button></td>
                             </tr>
                         ))
                         /*
