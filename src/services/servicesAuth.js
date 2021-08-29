@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { directoryAPI } from '../api/api/directoryAPI';
+import { directoryAPI } from '../api/directoryAPI';
 
 // const API_URL = 'http://localhost:8000/api/v1/auth';
 
