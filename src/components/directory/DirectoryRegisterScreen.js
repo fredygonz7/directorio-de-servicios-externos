@@ -4,33 +4,38 @@ import { useForm } from '../../hooks/useForm';
 
 // import { sendForm } from '../../fetch/FetchGeneral';
 // import { useHistory } from 'react-router-dom';
-import { fetchCreateDirectory, fetchUpdateDirectory } from '../../services/servicesDirectory';
+import { fetchCreateDirectory } from '../../services/servicesDirectory';
 
-const DirectoryScreen = () => {
-    const [formValues, handleInputChange, formReset] = useForm(
-        {
-            NombreServicio: '',
-            TipoServicio: '',
-            ServicioDomicilio: false,
-            HorarioAtencion: '',
-            PaginaWeb: '',
-            CorreoElectronico: '',
-        });
+const DirectoryRegisterScreen = () => {
+    const [formValues, handleInputChange, formReset] = useForm({
+        //     NombreServicio: '',
+        //     TipoServicio: '',
+        //     ServicioDomicilio: false,
+        //     HorarioAtencion: '',
+        //     PaginaWeb: '',
+        //     CorreoElectronico: '',
+        //     CorreoElectronico_confirmation: ''
+        // });
+        NombreServicio: 'Abastos El Ajonjoli',
+        TipoServicio: 'tienda',
+        ServicioDomicilio: false,
+        HorarioAtencion: '7am - 7pm ',
+        PaginaWeb: 'http://www.ajonjoli.com',
+        CorreoElectronico: 'ajonjoli.sincelejo@gmail.com',
+        CorreoElectronico_confirmation: 'ajonjoli.sincelejo@gmail.com'
+    });
 
     const { NombreServicio,
         TipoServicio,
         ServicioDomicilio,
         HorarioAtencion,
         PaginaWeb,
-        CorreoElectronico
+        CorreoElectronico,
+        CorreoElectronico_confirmation
     } = formValues
 
     const handleDirectoty = (event) => {
-
         event.preventDefault();
-        
-        // sendForm({ ...formValues, "tokenId": localStorage.getItem('token') }, formReset)
-        // servicesDirectory.register({ ...formValues, "token": localStorage.getItem('token') }).then((
         fetchCreateDirectory(formValues).then((
             { data }) => {
             console.log(data);
@@ -61,10 +66,10 @@ const DirectoryScreen = () => {
                     </div>
                     <div className="mb-3">
                         <select className="form-select" name="TipoServicio" value={TipoServicio} onChange={handleInputChange}>
-                            <option>Seleccione una opción</option>
-                            <option value="One">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option>Seleccione un tipo de servicio</option>
+                            <option value="drogueria">Drogueria</option>
+                            <option value="tienda">Tienda</option>
+                            <option value="otro">Otro</option>
                         </select>
                         {/* <input type="text" placeholder="TipoServicio" className="form-control"
                             name="TipoServicio" value={TipoServicio} onChange={handleInputChange} /> */}
@@ -89,6 +94,10 @@ const DirectoryScreen = () => {
                         <input type="email" placeholder="CorreoElectronico" className="form-control"
                             name="CorreoElectronico" value={CorreoElectronico} onChange={handleInputChange} />
                     </div>
+                    <div className="mb-3">
+                        <input type="email" placeholder="CorreoElectronico_confirmation" className="form-control"
+                            name="CorreoElectronico_confirmation" value={CorreoElectronico_confirmation} onChange={handleInputChange} />
+                    </div>
 
                     <div className="mb-3">
                         <button className="btn btn-primary" type="submit">
@@ -100,4 +109,4 @@ const DirectoryScreen = () => {
         </div>
     )
 };
-export default DirectoryScreen;
+export default DirectoryRegisterScreen;

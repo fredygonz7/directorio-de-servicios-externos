@@ -20,7 +20,7 @@ const LoginScreen = () => {
         fetchAuthLogin(formValues).then((
             { data: { access_token } }) => {
             localStorage.setItem("token", access_token)
-
+            console.log(access_token);
             history.push('/directorio')
         }, ({ response: { status, statusText } }) => {
             if (status === 400) {

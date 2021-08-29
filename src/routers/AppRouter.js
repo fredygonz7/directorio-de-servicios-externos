@@ -25,7 +25,7 @@ const AppRouter = () => {
                         {/* {DirectoryScreen} */}
                     </Route>
 
-                    <Route exact path="/register" component={DirectoryRegisterScreen}>
+                    <Route exact path="/directorio/registrar" component={DirectoryRegisterScreen}>
                         {/* {DirectoryScreen} */}
                     </Route>
 
