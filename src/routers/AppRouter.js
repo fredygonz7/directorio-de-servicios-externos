@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import { DirectoryListScreen } from '../components/directory/DirectoryListScreen';
-import DirectoryScreen from '../components/directory/DirectoryScreen';
+import DirectoryRegisterScreen from '../components/directory/DirectoryRegisterScreen';
 import { LoginScreen } from '../components/auth/LoginScreen';
 
 import AuthRouter from './AuthRouter';
@@ -20,12 +20,12 @@ const AppRouter = () => {
 
                     <Route
                         exact
-                        path="/DirectoryListScreen"
+                        path="/directorio"
                         component={DirectoryListScreen}>
                         {/* {DirectoryScreen} */}
                     </Route>
 
-                    <Route exact path="/register" component={DirectoryScreen}>
+                    <Route exact path="/register" component={DirectoryRegisterScreen}>
                         {/* {DirectoryScreen} */}
                     </Route>
 

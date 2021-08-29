@@ -1,40 +1,49 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-// import { sendForm } from '../../fetch/FetchGeneral';
 import { useForm } from '../../hooks/useForm';
 
 import logo from '../../logo.svg';
-import servicesAuth from '../../services/servicesAuth';
+import { fetchAuthLogin } from '../../services/servicesAuth';
 
 const LoginScreen = () => {
 
     const history = useHistory();
 
     const [formValues, handleInputChange] = useForm({ email: 'joelpahe18@gmail.com', password: 'password' });
-    
+
     const { email, password } = formValues
 
     const handleDirectoty = (event) => {
         event.preventDefault();
         // sendForm(formValues, formReset)
-        servicesAuth.login(formValues).then((
-            // { data: { access_token, token_type } }) => {
-            
-            // localStorage.setItem("token", access_token)
-            // localStorage.setItem("token_type", token_type)
+        fetchAuthLogin(formValues).then((
             { data: { access_token } }) => {
-
             localStorage.setItem("token", access_token)
-            console.log(access_token);
-            // history.push('../../')DirectoryListScreen
-            history.push('/DirectoryListScreen')
+
+            history.push('/directorio')
         }, ({ response: { status, statusText } }) => {
             if (status === 400) {
                 console.log("Error");
             }
         }
         )
+        // servicesAuth.login(formValues).then((
+        //     // { data: { access_token, token_type } }) => {
+
+        //     // localStorage.setItem("token", access_token)
+        //     // localStorage.setItem("token_type", token_type)
+        //     { data: { access_token } }) => {
+
+        //     localStorage.setItem("token", access_token)
+        //     // history.push('../../')DirectoryListScreen
+        //     history.push('/directorio')
+        // }, ({ response: { status, statusText } }) => {
+        //     if (status === 400) {
+        //         console.log("Error");
+        //     }
+        // }
+        // )
     }
 
     return (

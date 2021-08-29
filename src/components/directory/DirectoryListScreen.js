@@ -1,10 +1,10 @@
 // import { useState } from "react";
 import { Loading } from "../../components/Loading";
-import { useResources } from "../../hooks/useResources";
+import { useDirectories } from "../../hooks/useDirectories";
 
 export const DirectoryListScreen = () => {
-    const { isLoading, resources } = useResources();
-    console.log(resources);
+    const { isLoading, directories } = useDirectories();
+    console.log(directories);
 
     return (
         <div className="container">
@@ -23,15 +23,23 @@ export const DirectoryListScreen = () => {
                 </thead>
                 <tbody>
                     {
-                        resources.map(({id,nombreServicio,PaginaWeb,CorreoElectronico}) => (
+                        directories.map(({id,NombreServicio,PaginaWeb,CorreoElectronico}) => (
                             <tr key={id}>
                                 <td>{id}</td>
-                                <td>{nombreServicio}</td>
+                                <td>{NombreServicio}</td>
                                 <td>{PaginaWeb}</td>
                                 <td>{CorreoElectronico}</td>
                                 <td><button type="submit" className="btn btn-primary">Eliminar</button></td>
                             </tr>
                         ))
+                        /*
+                        directories.map(({ id, title }) => (
+                            <tr key={id}>
+                                <td>{id}</td>
+                                <td>{title}</td>
+                                <td><button type="submit" className="btn btn-primary">Eliminar</button></td>
+                            </tr>
+                        ))*/
                     }
                 </tbody>
             </table>
