@@ -18,8 +18,8 @@ const LoginScreen = () => {
         event.preventDefault();
         // sendForm(formValues, formReset)
         fetchAuthLogin(formValues).then(data => {
-            localStorage.setItem("token", data.access_token)
-            console.log(data.data);
+            localStorage.setItem("token", data.data.access_token)
+            // console.log(data.data);
             history.push('/directorio')
         }).catch(err => {
             console.log(err);

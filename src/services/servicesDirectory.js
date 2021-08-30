@@ -34,6 +34,7 @@ const fetchCreateDirectory = (data) => {
     const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     };
+    console.log("token",localStorage.getItem('token'));
     // return jsonplaceholderApi.post(`/posts`, { ...data }, config)
     return directoryAPI.post(`/directorioServicio`, { ...data }, config)
 }
