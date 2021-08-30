@@ -21,6 +21,23 @@ export const DirectoryListScreen = () => {
             });
     }
 
+    // const eliminar = (id) => {
+
+    //     console.log(id)
+    //     return;
+
+
+    //     fetchDeleteDirectory(id).then(data => {
+
+
+
+    //     }, error => {
+
+
+
+    //     });
+    // }
+
     return (
         <div className="container">
             <h1>Lista de lugares</h1>
