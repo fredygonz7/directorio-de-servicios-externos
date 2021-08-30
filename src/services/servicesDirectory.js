@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { jsonplaceholderApi } from '../api/jsonplaceholder';
+// import { jsonplaceholderApi } from '../api/jsonplaceholder';
 import { directoryAPI } from '../api/directoryAPI';
 
 // const API_URL = 'https://jsonplaceholder.typicode.com';
@@ -31,7 +31,6 @@ const fetchAllDirectories = async () => {
 }
 
 const fetchCreateDirectory = (data) => {
-    // localStorage.setItem("token", "access_token")
     const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     };
@@ -51,7 +50,7 @@ const fetchUpdateDirectory = (data, id = 1) => {
     return directoryAPI.put(`/directorioServicio/${id}`, { ...data }, config)
 }
 
-const fetchDeleteDirectory = (data, id = 1) => {
+const fetchDeleteDirectory = (id) => {
     // localStorage.setItem("token", "access_token")
     const config = {
         headers: {

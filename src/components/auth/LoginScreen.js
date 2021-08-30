@@ -17,33 +17,26 @@ const LoginScreen = () => {
     const handleDirectoty = (event) => {
         event.preventDefault();
         // sendForm(formValues, formReset)
-        fetchAuthLogin(formValues).then((
-            { data: { access_token } }) => {
-            localStorage.setItem("token", access_token)
-            console.log(access_token);
+        fetchAuthLogin(formValues).then(data => {
+            localStorage.setItem("token", data.access_token)
+            console.log(data.data);
             history.push('/directorio')
+        }).catch(err => {
+            console.log(err);
+        });
+
+        /*.then((
+        { data: { access_token } }) => {
+        localStorage.setItem("token", access_token)
+        console.log(access_token);
+        history.push('/directorio')
         }, ({ response: { status, statusText } }) => {
-            if (status === 400) {
-                console.log("Error");
-            }
-        }
-        )
-        // servicesAuth.login(formValues).then((
-        //     // { data: { access_token, token_type } }) => {
+            // if (status === 400) {
+            //     console.log("Error");
+            // }
+            console.log("no conecta");
+        })*/
 
-        //     // localStorage.setItem("token", access_token)
-        //     // localStorage.setItem("token_type", token_type)
-        //     { data: { access_token } }) => {
-
-        //     localStorage.setItem("token", access_token)
-        //     // history.push('../../')DirectoryListScreen
-        //     history.push('/directorio')
-        // }, ({ response: { status, statusText } }) => {
-        //     if (status === 400) {
-        //         console.log("Error");
-        //     }
-        // }
-        // )
     }
 
     return (

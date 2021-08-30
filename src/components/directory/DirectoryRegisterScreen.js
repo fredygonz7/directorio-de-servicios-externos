@@ -34,17 +34,26 @@ const DirectoryRegisterScreen = () => {
         CorreoElectronico_confirmation
     } = formValues
 
-    const handleDirectoty = (event) => {
+    const registerDirectoty = (event) => {
         event.preventDefault();
-        fetchCreateDirectory(formValues).then((
-            { data }) => {
-            console.log(data);
+        console.log(formValues);
+        fetchCreateDirectory(formValues)
+            .then(data => {
+            console.log(data.message, data)
             formReset();
-        }, ({ response: { status, statusText } }) => {
-            if (status === 400) {
-                console.log("Error");
-            }
-        })
+        }).catch(err => {
+            console.log("Error", err);
+        });
+
+        //     .then((
+        //     { data }) => {
+        //     console.log(data.message);
+        //     formReset();
+        // }, ({ response: { status, statusText } }) => {
+        //     if (status === 400) {
+        //         console.log("Error");
+        //     }
+        // })
     }
 
     return (
@@ -55,7 +64,7 @@ const DirectoryRegisterScreen = () => {
                 <p>
                     Edit <code>src/App.js</code> and save to reload.
                 </p> */}
-                <form onSubmit={handleDirectoty}>
+                <form onSubmit={registerDirectoty}>
                     {/* <div className="mb-3">
                         <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
                         <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
