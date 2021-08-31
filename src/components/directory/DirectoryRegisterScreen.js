@@ -1,9 +1,5 @@
 import React from 'react'
 import { useForm } from '../../hooks/useForm';
-// import logo from '../../logo.svg';
-
-// import { sendForm } from '../../fetch/FetchGeneral';
-// import { useHistory } from 'react-router-dom';
 import { fetchCreateDirectory } from '../../services/servicesDirectory';
 
 const DirectoryRegisterScreen = () => {
@@ -39,21 +35,11 @@ const DirectoryRegisterScreen = () => {
         console.log(formValues);
         fetchCreateDirectory(formValues)
             .then(data => {
-            console.log(data.message, data)
+            console.log(data.data.message, data)
             formReset();
         }).catch(err => {
             console.log("Error", err);
         });
-
-        //     .then((
-        //     { data }) => {
-        //     console.log(data.message);
-        //     formReset();
-        // }, ({ response: { status, statusText } }) => {
-        //     if (status === 400) {
-        //         console.log("Error");
-        //     }
-        // })
     }
 
     return (
